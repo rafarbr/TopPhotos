@@ -15,8 +15,8 @@ class PhotoListViewController: BothamViewController, BothamLoadingViewController
     @IBOutlet weak var emptyView: UILabel!
     
     var dataSource: BothamTableViewDataSource<Photo, PhotoTableViewCell>!
-    var delegate: UITableViewDelegate!
-    
+    var delegate: UITableViewDelegate?
+
     let loadingView: UIView = {
         let loadingView = BothamLoadingView()
         loadingView.color = UIColor.loadingColor

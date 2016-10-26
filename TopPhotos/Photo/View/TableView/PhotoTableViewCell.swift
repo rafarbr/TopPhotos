@@ -29,7 +29,9 @@ class PhotoTableViewCell: UITableViewCell, BothamViewCell {
         let placeholder = UIImage(named: "noimage")
         
         if let image = item.thumbnailUrl {
-            thumbnailImageView?.load(fromURL: NSURL(string: image)!, placeholderImage: placeholder)
+            if let url = NSURL(string: image) {
+                thumbnailImageView?.load(fromURL: url, placeholderImage: placeholder)
+            }
         } 
         
         titleLabel.text = item.title

@@ -23,7 +23,9 @@ class PhotoCollectionViewCell: UICollectionViewCell, BothamViewCell {
         let placeholder = UIImage(named: "noimage")?.af_imageScaledToSize(size).af_imageWithRoundedCornerRadius(radius)
 
         if let image = item.photoUrl {
-            photoImageView?.load(fromURL: NSURL(string: image)!, placeholderImage: placeholder, filter: filter)
+            if let url = NSURL(string: image) {
+                photoImageView?.load(fromURL: url, placeholderImage: placeholder, filter: filter)
+            }
         }
         photoTitleLabel?.text = item.title
     }

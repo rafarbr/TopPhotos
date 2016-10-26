@@ -18,7 +18,9 @@ extension ShowsAlert where Self: UIViewController {
         
         let okAction = UIAlertAction(title: "Ok", style: .Default, handler: {
             (action : UIAlertAction) -> Void in
-            completion!(buttonPressed: action.title!)
+            if let msg = action.title {
+                completion?(buttonPressed: msg)
+            }
         })
         okAction.accessibilityLabel = "OK"
         alertController.addAction(okAction)

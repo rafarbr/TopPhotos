@@ -34,7 +34,9 @@ class PhotoRepositoryImp: PhotoRepository {
                     completion(.Success(photos))
                 }
             } else {
-                completion(.Failure(response.result.error!))
+                if let error = response.result.error {
+                    completion(.Failure(error))
+                }                
             }
         }
     }

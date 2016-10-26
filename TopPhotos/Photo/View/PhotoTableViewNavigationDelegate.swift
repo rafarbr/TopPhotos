@@ -21,12 +21,13 @@ public class PhotoTableViewNavigationDelegate<T: BothamViewDataSource, U: Botham
     
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let item = dataSource.itemAtIndexPath(indexPath)
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        cell?.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.95, 0.95)
-        UIView.transitionWithView(cell!, duration: 0.1, options: .CurveLinear, animations: {
-            cell?.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0)
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+            cell.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.95, 0.95)
+            UIView.transitionWithView(cell, duration: 0.1, options: .CurveLinear, animations: {
+                cell.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0)
             }) { (finished) in
                 self.presenter.itemWasTapped(item)
+            }
         }
     }
 }

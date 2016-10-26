@@ -22,7 +22,7 @@ class PhotoCollectionViewController: BothamViewController, BothamLoadingViewCont
     @IBOutlet weak var emptyView: UILabel!
     
     var dataSource: BothamCollectionViewDataSource<Photo, PhotoCollectionViewCell>!
-    var delegate: UICollectionViewDelegate!
+    var delegate: UICollectionViewDelegate?
     
     override func viewDidLoad() {
         title = "Top Photos"

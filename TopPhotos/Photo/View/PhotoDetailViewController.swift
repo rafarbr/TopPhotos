@@ -24,7 +24,9 @@ class PhotoDetailViewController: BothamViewController, PhotoDetailUI {
         let placeholder = UIImage(named: "noimage")?.af_imageWithRoundedCornerRadius(radius)
         
         if let image = photo.photoUrl {
-            photoImageView?.load(fromURL: NSURL(string: image)!, placeholderImage: placeholder, filter: filter, imageTransition: .CrossDissolve(1.25))
+            if let url = NSURL(string: image) {
+                photoImageView?.load(fromURL: url, placeholderImage: placeholder, filter: filter, imageTransition: .CrossDissolve(1.25))
+            }
         }
     }
     
