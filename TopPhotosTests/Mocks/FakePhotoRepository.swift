@@ -18,8 +18,9 @@ public struct API{
     static let json: [Photo] = {
         var photos = [Photo]()
         for i in 1 ... 6 {
-            let photo = Photo(json: ["id": i, "albumId": i, "title": "photo \(i)", "thumbnailUrl": "http://placehold.it/150/30ac17", "url": "http://placehold.it/600/92c952"])
-            photos.append(photo!)
+            if let photo = Photo(json: ["id": i, "albumId": i, "title": "photo \(i)", "thumbnailUrl": "http://placehold.it/150/30ac17", "url": "http://placehold.it/600/92c952"]) {
+                photos.append(photo)
+            }
         }
         return photos;
     }()
