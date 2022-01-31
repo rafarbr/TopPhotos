@@ -23,4 +23,5 @@ class FakePhotoDetailUI: PhotoDetailUI {
     func showPhotoInformation(photo: Photo) {
         itemShowed = photo
     }
+    
 }
